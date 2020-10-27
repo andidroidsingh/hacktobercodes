@@ -41,11 +41,12 @@ void Graph::DFS()
 { 
 	// Mark all the vertices as not visited 
 	bool *visited = new bool[V]; 
+	memset(visited, 0, V);
 	for (int i = 0; i < V-1; i++) 
-		visited[i] = true; 
+		visited[i] = false; 
 
 	
-	for (int i = 0; i < V-1; i++) 
+	for (int i = 0; i < V; i++) 
 		if (visited[i] == false) 
 			DFSUtil(i, visited); 
 } 
