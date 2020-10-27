@@ -11,5 +11,5 @@ int main()
     
     printf("%d + %d = %d", firstNumber, secondNumber, sumOfTwoNumbers);
     
-    return 0;
+    return 1;
 }
