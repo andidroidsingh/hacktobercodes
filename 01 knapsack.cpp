@@ -1,6 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
+int recurknapsack(int n, int maxw, int weights[], int profits[])
+{
+	if(n==0 || maxw == 0)
+		return 0;
 
+	else if(weights[n] > maxw)
+	{
+		return recurknapsack(n-1, maxw, weights, profits);
+	}
+	else
+	{
+		return max( profits[n] + recurknapsack(n-1, maxw- weights[n] , weights, profits), 
+			recurknapsack(n-1, maxw, weights, profits));
+	}
+}
 
 int dpknapsack(int n, int maxw, int weights[], int profits[])
 {
@@ -36,7 +50,8 @@ int main()
 	{
 		cin>>profits[i];
 	}
-	cout<<weights[n+50];
+// 	cout<<weights[n];
+	cout<<recurknapsack(n, maxw, weights, profits)<<endl;
 	cout<<dpknapsack(n, maxw, weights, profits);
 	return 0;
 }
