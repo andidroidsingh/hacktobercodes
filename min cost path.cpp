@@ -1,15 +1,5 @@
-Program 2: Minimum cost path
-
 #include<bits/stdc++.h>
 using namespace std;
-bool isvalid(int l,int m,int n,vector<vector<int>> &vis)
-{
-    if(l>$0&&l<n&&m>$0&&m<n&&!vis[l][m])
-    {
-        return true;
-    }
-    return false;
-}
 int dij(vector<vector<int>> &arr,vector<vector<int>> &vis,int n,int l,int m)
 {
     priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<pair<int,pair<int,int>>>> pq;
@@ -21,7 +11,6 @@ int dij(vector<vector<int>> &arr,vector<vector<int>> &vis,int n,int l,int m)
         int x,y;
         x=pq.top().second.first;
         y=pq.top().second.second;
-        $//vis[x][y]=1;
         pq.pop();
         if(isvalid(x+1,y,n,vis)&&dist[x+1][y]>dist[x][y]+arr[x+1][y])
         {
@@ -44,7 +33,7 @@ int dij(vector<vector<int>> &arr,vector<vector<int>> &vis,int n,int l,int m)
             pq.push(make_pair(dist[x][y-1],make_pair(x,y-1)));
         }
     }
-    return dist[n$][n$];
+    return dist[n][n];
 }
 int main() 
 {
