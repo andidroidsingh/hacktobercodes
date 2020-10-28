@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-void dfs(int k,vector<int> adj[],stack<int> $s,vector<int> $vis)
+void dfs(int k,vector<int> adj[],stack<int> s,vector<int> vis)
 {
     vis[k]=1;
     for(int i=0;i<adj[k].size();i++)
@@ -15,7 +14,6 @@ void dfs(int k,vector<int> adj[],stack<int> $s,vector<int> $vis)
 }
 int kosaraju(int V, vector<int> adj[])
 {
-    // Your code here
     stack<int> s;
     vector<int> vis(V,0);
     vector<int> adj2[V];
@@ -45,7 +43,7 @@ int kosaraju(int V, vector<int> adj[])
         s.pop();
         if(!vis[k])
         {
-            dfs2(k,adj$,vis);
+            dfs(k,adj,vis);
             count++;
         }
     }
