@@ -2,6 +2,7 @@
 using namespace std;
 bool dfs(int n,vector<int> &vis,vector<int> adj[],vector<int> &stat)
 {
+    vis[n]=1;
     stat[n]=0;
     for(int i=0;i<adj[n].size();i++)
     {
@@ -12,7 +13,15 @@ bool dfs(int n,vector<int> &vis,vector<int> adj[],vector<int> &stat)
                 return true;
             }
         }
+        else
+        {
+            if(stat[adj[n][i]]==0)
+            {
+                return true;
+            }
+        }
     }
+    stat[n]=1;
     return false;
 }
 bool isCyclic(int V, vector<int> adj[])
